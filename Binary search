@@ -1,0 +1,84 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMPTMkxcEFkJbwZYS+V/vYe",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/JD32919/EDA/blob/main/Binary%20search\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5zX5-Du4xhnI",
+        "outputId": "e8c88be4-9547-4101-b444-c80a60593e90"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "lista ordenda <built-in method sort of list object at 0x7b1a5cb8f700>\n"
+          ]
+        }
+      ],
+      "source": [
+        "def busqueda_binaria(lista, objetivo):\n",
+        "    inicio = 0\n",
+        "    fin = len(lista) - 1\n",
+        "\n",
+        "    while inicio <= fin:\n",
+        "        medio = (inicio + fin) // 2  # Encuentra el punto medio\n",
+        "        if lista[medio] == objetivo:\n",
+        "            return medio  # Devuelve el índice si encuentra el objetivo\n",
+        "        elif lista[medio] < objetivo:\n",
+        "            inicio = medio + 1  # Si el objetivo es mayor, descarta la mitad izquierda\n",
+        "        else:\n",
+        "            fin = medio - 1  # Si el objetivo es menor, descarta la mitad derecha\n",
+        "\n",
+        "    return -1  # Si no se encuentra, devuelve -1\n",
+        "\n",
+        "# Lista de ejemplo (debe estar ordenada para la búsqueda binaria)\n",
+        "lista = [24,35,3,2,46,32,1,21,76,15]\n",
+        "\n",
+        "# Muestra la lista\n",
+        "print(f\"lista ordenda {lista.sort}\")\n",
+        "\n",
+        "# Pide al usuario que ingrese el número a buscar\n",
+        "objetivo = int(input(\"Ingresa el número que deseas buscar en la lista: \"))\n",
+        "\n",
+        "# Realiza la búsqueda binaria\n",
+        "resultado = busqueda_binaria(lista, objetivo)\n",
+        "\n",
+        "# Muestra el resultado\n",
+        "if resultado != -1:\n",
+        "    print(f\"El número {objetivo} se encuentra en el índice {resultado}.\")\n",
+        "else:\n",
+        "    print(f\"El número {objetivo} no se encuentra en la lista.\")"
+      ]
+    }
+  ]
+}
